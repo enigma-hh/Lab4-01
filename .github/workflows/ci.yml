@@ -12,7 +12,7 @@ jobs:
       - name: Install Poetry
         run: pip install poetry
       - name: Install dependencies
-        run: poetry install
+        run: poetry install --no-interaction
       - name: Check code format
         run: black --check .
       - name: Run tests
