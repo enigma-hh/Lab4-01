@@ -13,11 +13,15 @@ jobs:
         run: pip install poetry
       - name: Install dependencies
         run: poetry install --no-interaction
+      - name: Install pre-commit
+        run: pip install pre-commit
+      - name: Install pre-commit hooks
+        run: pre-commit install
       - name: Debug check black
-	run: poetry run which black
+        run: poetry run which black
       - name: Check code format
         run: black --check .
       - name: Run tests
-        run: pytest pygraph.py
+        run:  pytest -r P --cov=pygraph
       - name: Generate docs
         run: pdoc --html pygraph -o html/
