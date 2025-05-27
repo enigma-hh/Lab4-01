@@ -17,10 +17,12 @@ jobs:
         run: pip install pre-commit
       - name: Install pre-commit hooks
         run: pre-commit install
+        name: Install black
+        run: pip install black
       - name: Debug check black
         run: poetry run which black
       - name: Check code format
-        run: black .
+        run: poetry run black --check .
       - name: Run tests
         run:  pytest -r P --cov=pygraph
       - name: Generate docs
