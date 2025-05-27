@@ -22,6 +22,6 @@ jobs:
       - name: Check code format
         run: poetry run black --check .
       - name: Run tests
-        run:  pytest -r P --cov=pygraph
+        run: poetry run pytest -r P --cov=pygraph
       - name: Generate docs
-        run: pdoc --html pygraph -o html/
+        run: poetry run pdoc --html pygraph -o html/
