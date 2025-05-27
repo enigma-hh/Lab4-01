@@ -17,10 +17,8 @@ jobs:
         run: pip install pre-commit
       - name: Install pre-commit hooks
         run: pre-commit install
-        name: Install black
-        run: pip install black
-      - name: Debug check black
-        run: poetry run which black
+      - name: Install dependencies
+        run: poetry install --with dev
       - name: Check code format
         run: poetry run black --check .
       - name: Run tests
